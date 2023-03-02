@@ -104,7 +104,7 @@ public class LoggingController {
 
         userRepository.addUser(user);
 
-        return "login";
+        return valid;
     }
 
     @PostMapping("/logout")
