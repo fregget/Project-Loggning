@@ -14,48 +14,59 @@
 
 <div class="container">
     <header>
-        <h1> <span class="brand">Loggs</span></h1>
+        <h1><span class="brand">Loggs</span></h1>
         <h2>Time Registration System</h2>
     </header>
     <div class="introname">
         <h3>Hello <span class="typed"></span></h3>
 
-        <form  action="/logout" method="POST">
+        <form action="/logout" method="POST">
             <input class="submit" Type="submit" value="Logout">
         </form>
     </div>
     <div class="timeform">
-    
-<form class="row gy-2 gx-3 align-items-center" action="/home" method="post" th:object="${timeRegistration}">
 
-    <div class="col-sm-3">
-        <div class="form-floating mb-3">
-            <input class="form-control" placeholder="Date" Type="date" th:attr="min = ${minDate}, max = ${maxDate}"
-                   id="floating-date" th:field="*{date}" th:errorclass="error"/>
-            <p th:if="${#fields.hasErrors('date')}" th:errors="*{date}"></p>
-            <!-- th:value="${#dates.format(#dates.createNow(),'yyyy-MM-dd')} Dagens datum -->
-            <label for="floating-date">Date</label>
-        </div>
-    </div>
+        <form class="row gy-2 gx-3 align-items-center" action="/home" method="post" th:object="${timeRegistration}">
 
-    <div class="col-sm-3">
-        <div class="form-floating mb-3">
-            <select class="form-control" id="floating-enumType" aria-label="Time category" th:field="*{enumType}">
-                <option th:each="type:${TypeRegTime} " th:value="${type}"  th:text="${type.getName}"></option>
-            </select>
-            <label for="floating-enumType"> Time category: </label>
-        </div>
-    </div>
+            <div class="col-sm-3">
+                <div class="form-floating mb-3">
+                    <input class="form-control" placeholder="Date" Type="date"
+                           th:attr="min = ${minDate}, max = ${maxDate}"
+                           id="floating-date" th:field="*{date}" th:errorclass="error"/>
+                    <p th:if="${#fields.hasErrors('date')}" th:errors="*{date}">&nbsp</p>
+                    <!-- th:value="${#dates.format(#dates.createNow(),'yyyy-MM-dd')} Dagens datum -->
+                    <label for="floating-date">Date</label>
+                </div>
+            </div>
 
-    <div class="col-sm-3">
-        <div class="form-floating mb-3">
-            <input class="form-control" placeholder="Hours"
-                   Type="number" id="floating-time"
-                   min="0.1" step="0.1" max="8"
-                   th:field="*{time}" th:errorclass="error"/>
-            <p th:if="${#fields.hasErrors('time')}" th:errors="*{time}"></p>
-            <label class="form-label" for="floating-time"> Hours</label>
-        </div>
+            <div class="col-sm-3">
+                <div class="form-floating mb-3">
+                    <select class="form-control" id="floating-enumType" aria-label="Time category"
+                            th:field="*{enumType}">
+                        <option th:each="type:${TypeRegTime} " th:value="${type}" th:text="${type.getName}"></option>
+                    </select>
+                    <label for="floating-enumType"> Time category: </label>
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+                <div class="form-floating mb-3">
+                    <input class="form-control" placeholder="Hours"
+                           Type="number" id="floating-time"
+                           min="0.1" step="0.1" max="8"
+                           th:field="*{time}" th:errorclass="error"/>
+                    <p th:if="${#fields.hasErrors('time')}" th:errors="*{time}">&nbsp</p>
+                    <label class="form-label" for="floating-time"> Hours</label>
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+                <div class="form-floating mb-3">
+                    <input class="form-control" placeholder="Comment" Type="text"
+                           id="floating-comment" th:field="*{comment}"/>
+                    <label class="form-label" for="floating-comment"> Comment</label>
+                </div>
+            </div>
 
             <div class="row">
                 <div class="col-sm-5">
@@ -109,6 +120,8 @@ startDelay: 1000,
 var typed = new Typed('.typed', options);
 
 
+
+
 </script>
 <script>
 
@@ -146,6 +159,8 @@ var typed = new Typed('.typed', options);
             chart.draw(data, options);
 
         }
+
+
 
 </script>
 

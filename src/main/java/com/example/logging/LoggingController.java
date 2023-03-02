@@ -134,7 +134,7 @@ public class LoggingController {
             System.out.println("Time = null");
             bindingResult.rejectValue("time","error","Please enter time.");
         }
-        else if(tr.getDate().isEmpty()) {
+        if(tr.getDate().isEmpty()) {
             System.out.println("Date is empty");
            bindingResult.rejectValue("date","error","Please enter date.");
         }
